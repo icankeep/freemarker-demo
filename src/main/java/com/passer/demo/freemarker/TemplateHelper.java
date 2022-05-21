@@ -9,7 +9,6 @@ import java.io.IOException;
 import java.io.StringWriter;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Paths;
-import java.util.Collections;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -61,9 +60,6 @@ public class TemplateHelper {
             final Template template = new Template(name, templateStr, conf);
             final StringWriter sw = new StringWriter();
             template.process(obj, sw);
-
-            final Template template2 = new Template(name, templateStr, conf);
-            System.out.println(template.equals(template2));
             return sw.toString();
         } catch (Exception e) {
             throw new RuntimeException(e);
